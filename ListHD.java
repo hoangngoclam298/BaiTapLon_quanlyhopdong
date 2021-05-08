@@ -22,8 +22,7 @@ public class ListHD {
             int nam=Integer.parseInt(scan.nextLine());
             int thoiHan=Integer.parseInt(scan.nextLine());
             if( loaiHopDong==0 ){                
-                int id = list.size() + 1;
-                HopDong tmp = new HDCoBan(nguoiMua, nguoiHuongThu, thoiHan, giaTri, ngay, thang, nam, id);       // upcasting
+                HopDong tmp = new HDCoBan(nguoiMua, nguoiHuongThu, thoiHan, giaTri, ngay, thang, nam);       // upcasting
                 if(list.contains(tmp)) System.out.println("Co hop dong trung du lieu\nVui long nhap lai.");
                 else {
                     check = false;
@@ -31,8 +30,7 @@ public class ListHD {
                 }
             }
             else {
-                int id = list.size() + 1;
-                HopDong tmp = new HDNangCao(nguoiMua, nguoiHuongThu, thoiHan, giaTri, ngay, thang, nam, id);       // upcasting
+                HopDong tmp = new HDNangCao(nguoiMua, nguoiHuongThu, thoiHan, giaTri, ngay, thang, nam);       // upcasting
                 if(list.contains(tmp)) System.out.println("Co hop dong trung du lieu\nVui long nhap lai.");
                 else {
                     check = false;
@@ -44,6 +42,8 @@ public class ListHD {
         
     }
 
+    
+
     public void inDanhSach(){
         for(HopDong tmp: list){
             tmp.inThongTin();
@@ -52,7 +52,7 @@ public class ListHD {
 
     public void timHopDong(int thoiHanHopDong){
         for(HopDong tmp: list){
-            if( tmp.getThoiHanHD() ==thoiHanHopDong )     tmp.inThongTin();
+            if( tmp.getThoiHanHD() == thoiHanHopDong )     tmp.inThongTin();
         }
     }
 
