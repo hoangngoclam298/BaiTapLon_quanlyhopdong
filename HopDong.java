@@ -38,7 +38,7 @@ public abstract class HopDong {
     }
 
     public void inThongTin() {
-        System.out.println("\nThong tin cua khach hang ");
+        System.out.println("Thong tin cua khach hang ");
         System.out.println("Ten nguoi mua: " + tenNguoiMua);
         System.out.println("Ten nguoi thu huong: "+tenNguoiThuHuong);
         System.out.println("Gia tri hop dong: "+giaTriHD);

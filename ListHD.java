@@ -46,6 +46,7 @@ public class ListHD {
 
     public void inDanhSach(){
         for(HopDong tmp: list){
+            System.out.println("STT " + (list.indexOf(tmp)+1) + ":");
             tmp.inThongTin();
         }
     }
