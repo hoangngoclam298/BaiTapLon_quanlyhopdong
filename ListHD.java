@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 public class ListHD {
-    public LinkedList <HopDong> list1, list2;
+    public LinkedList <HopDong> list;
 
     public static Scanner scan = new Scanner(System.in);
 
@@ -37,15 +37,15 @@ public class ListHD {
             int loaiHopDong=Integer.parseInt(scan.nextLine());
             if( loaiHopDong==0 ){                
                 HopDong tmp = addHDcoban();
-                if(!list1.contains(tmp)) {
-                    list1.add(tmp);
+                if(!list.contains(tmp)) {
+                    list.add(tmp);
                     check = false;
                 }
             }
             else {
                 HopDong tmp = addHDnangcao();      
-                if(!list2.contains(tmp)) {
-                    list2.add(tmp);
+                if(!list.contains(tmp)) {
+                    list.add(tmp);
                     check = false;
                 }
             }
@@ -91,21 +91,21 @@ public class ListHD {
             int loaiHopDong=Integer.parseInt(scan.nextLine());
             if( loaiHopDong==0 ){                
                 HopDong tmp = addHDcoban();     
-                if(!list1.contains(tmp)) { 
+                if(!list.contains(tmp)) { 
                     System.out.println("Khong ton tai hop dong, nhap lai: ");
                 }
                 else {
-                    list1.remove(tmp);
+                    list.remove(tmp);
                     check = false;
                 }
             }
             else {
                 HopDong tmp = addHDnangcao();       
-                if(!list2.contains(tmp)) {
+                if(!list.contains(tmp)) {
                     System.out.println("Khong ton tai hop dong, nhap lai: ");
                 }
                 else {
-                    list2.remove(tmp);
+                    list.remove(tmp);
                     check = false;
                 }    
             }
@@ -119,7 +119,7 @@ public class ListHD {
             int loaiHopDong=Integer.parseInt(scan.nextLine());
             if(loaiHopDong==0) {
                 HopDong tmp = addHDcoban();
-                if(!list1.contains(tmp)) {
+                if(!list.contains(tmp)) {
                     System.out.println("Khong ton tai hop dong nay, yeu cau nhap lai: ");
                 }
                 else {
@@ -130,11 +130,11 @@ public class ListHD {
             }
             else {
                 HopDong tmp = addHDnangcao();
-                if(!list2.contains(tmp)) {
+                if(!list.contains(tmp)) {
                     System.out.println("Khong ton tai hop dong nay, yeu cau nhap lai: ");
                 }
                 else {
-                    list2.remove(tmp);
+                    list.remove(tmp);
                     themHopDong();
                     check = false;
                 }
