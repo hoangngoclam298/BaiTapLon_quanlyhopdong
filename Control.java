@@ -11,11 +11,10 @@ public class Control {
         listHopDong.themHopDong();
         listHopDong.themHopDong();
         listHopDong.themHopDong();
-        //System.out.println("chi so: " + listHopDong.list.indexOf(listHopDong.list.get(2)));
         listHopDong.inDanhSach();
-        listHopDong.xoaHopDong();
+        listHopDong.xoaHopDongById();
         listHopDong.inDanhSach();
-        listHopDong.suaHopDong();
+        listHopDong.suaHopDongById();
         listHopDong.inDanhSach();
         
         System.out.println("\n\nTong loi nhuan:"+listHopDong.tienHopDong());
