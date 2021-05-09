@@ -33,18 +33,13 @@ public abstract class HopDong {
         this.giaTriHD = giaTriHD;
         ngayMua = LocalDate.of(nam, thang, ngay);
     }
+    
     public LocalDate thoihanHD() {
         return ngayMua.plusMonths(thoiHanHD);
     }
 
-    public void inThongTin() {
-        System.out.println("Thong tin cua khach hang ");
-        System.out.println("Ten nguoi mua: " + tenNguoiMua);
-        System.out.println("Ten nguoi thu huong: "+tenNguoiThuHuong);
-        System.out.println("Gia tri hop dong: "+giaTriHD);
-        System.out.println("Ngay mua:"+ngayMua.getDayOfMonth()+"/"+ngayMua.getMonthValue()+"/"+ngayMua.getYear());
-        System.out.println("Thoi han: "+thoiHanHD+" thang\n");
-    }
+    public abstract void inThongTin() ;
+    
     public void suaThongTin(String tenNguoiMua, String tenNguoiThuHuong, int thoiHanHD, long giaTriHD, int ngay, int thang, int nam) {
         this.tenNguoiMua = tenNguoiMua;
         this.tenNguoiThuHuong = tenNguoiThuHuong;

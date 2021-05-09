@@ -12,10 +12,12 @@ public class Control {
         listHopDong.themHopDong();
         listHopDong.themHopDong();
         listHopDong.inDanhSach();
-        listHopDong.xoaHopDongById();
-        listHopDong.inDanhSach();
-        listHopDong.suaHopDongById();
-        listHopDong.inDanhSach();
+        //listHopDong.xoaHopDongById();
+        //listHopDong.inDanhSach();
+        //listHopDong.suaHopDongById();
+        //listHopDong.inDanhSach();
+        listHopDong.timHopDong(18);
+        listHopDong.thongKe(5, 5, 2001, 9, 9, 2001);
         
         System.out.println("\n\nTong loi nhuan:"+listHopDong.tienHopDong());
     }
