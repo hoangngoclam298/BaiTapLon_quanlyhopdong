@@ -9,19 +9,27 @@ public class ListHD {
 
     public static Scanner scan = new Scanner(System.in);
 
+    public int checkIndex(int loaiHopDong, String nguoiMua, String nguoiThuHuong, int thoiHan, long giaTri, int ngay, int thang, int nam){
+        for(int i=0; i<list.size(); i++){
+            HopDong tmp = list.get(i);
+            if(tmp.checkEqual(loaiHopDong, nguoiMua, nguoiThuHuong, thoiHan, giaTri, ngay, thang, nam)) return i;
+        }
+        return -1;
+    } 
+
     public void themHopDong(){
         boolean check=true;
         while(check){
             int loaiHopDong=Integer.parseInt(scan.nextLine());
             String nguoiMua=scan.nextLine();
-            String nguoiHuongThu=scan.nextLine();
+            String nguoiThuHuong=scan.nextLine();
             long giaTri=Long.parseLong(scan.nextLine());
             int ngay=Integer.parseInt(scan.nextLine());
             int thang=Integer.parseInt(scan.nextLine());
             int nam=Integer.parseInt(scan.nextLine());
             int thoiHan=Integer.parseInt(scan.nextLine());
             if( loaiHopDong==0 ){                
-                HopDong tmp = new HDCoBan(nguoiMua, nguoiHuongThu, thoiHan, giaTri, ngay, thang, nam);       // upcasting
+                HopDong tmp = new HDCoBan(nguoiMua, nguoiThuHuong, thoiHan, giaTri, ngay, thang, nam);       // upcasting
                 if(list.contains(tmp)) System.out.println("Co hop dong trung du lieu\nVui long nhap lai.");
                 else {
                     check = false;
@@ -29,7 +37,7 @@ public class ListHD {
                 }
             }
             else {
-                HopDong tmp = new HDNangCao(nguoiMua, nguoiHuongThu, thoiHan, giaTri, ngay, thang, nam);       // upcasting
+                HopDong tmp = new HDNangCao(nguoiMua, nguoiThuHuong, thoiHan, giaTri, ngay, thang, nam);       // upcasting
                 if(list.contains(tmp)) System.out.println("Co hop dong trung du lieu\nVui long nhap lai.");
                 else {
                     check = false;
@@ -51,7 +59,7 @@ public class ListHD {
 
     public void suaHopDongById() {
         System.out.println("Sua hop dong");
-        System.out.println("Nhap so thu tu hop dong ban can xoa!");
+        System.out.println("Nhap so thu tu hop dong ban can sua va thong tin moi!");
         int index = Integer.parseInt(scan.nextLine());
         int loaiHopDong=Integer.parseInt(scan.nextLine());
         String tenNguoiMua=scan.nextLine();
@@ -80,128 +88,61 @@ public class ListHD {
         while(check){
             int loaiHopDong=Integer.parseInt(scan.nextLine());
             String nguoiMua=scan.nextLine();
-            String nguoiHuongThu=scan.nextLine();
+            String nguoiThuHuong=scan.nextLine();
             long giaTri=Long.parseLong(scan.nextLine());
             int ngay=Integer.parseInt(scan.nextLine());
             int thang=Integer.parseInt(scan.nextLine());
             int nam=Integer.parseInt(scan.nextLine());
             int thoiHan=Integer.parseInt(scan.nextLine());
-            if( loaiHopDong==0 ){                
-                HopDong tmp = new HDCoBan(nguoiMua, nguoiHuongThu, thoiHan, giaTri, ngay, thang, nam);       
-                if( list.indexOf(tmp)==-1 ) {
-                	System.out.println(list.indexOf(tmp));
-                	tmp.inThongTin();
-                    System.out.println("Khong ton tai hop dong, nhap lai: ");
-                }
-                else{
-                    list.remove(tmp);
-                    check=false;
-                }
+            int index = checkIndex(loaiHopDong, nguoiMua, nguoiThuHuong, thoiHan, giaTri, ngay, thang, nam);
+            if(index!=-1) {
+                list.remove(index);
+                check=false;
             }
-            else {
-                HopDong tmp = new HDNangCao(nguoiMua, nguoiHuongThu, thoiHan, giaTri, ngay, thang, nam);       
-                for(HopDong tmp1:list) {
-                	if(tmp==tmp1) {
-                		list.remove(tmp1);
-                	}
-                	else System.out.println("deo co chuyen kia dau");
-                }        
+            else{
+                System.out.println("Khong co hop dong nay!\nNhap lai: ");
             }
         }
     }
 
     public void suaHopDong() {
-        System.out.println("Sua hop dong\nNhap thong tin hop dong can sua");
+        System.out.println("Sua hop dong");
+        //tim hop dong can xoa
+        System.out.println("Nhap hop dong ban can sua!");
         boolean check=true;
         while(check){
             int loaiHopDong=Integer.parseInt(scan.nextLine());
             String nguoiMua=scan.nextLine();
-            String nguoiHuongThu=scan.nextLine();
+            String nguoiThuHuong=scan.nextLine();
             long giaTri=Long.parseLong(scan.nextLine());
             int ngay=Integer.parseInt(scan.nextLine());
             int thang=Integer.parseInt(scan.nextLine());
             int nam=Integer.parseInt(scan.nextLine());
             int thoiHan=Integer.parseInt(scan.nextLine());
-            if( loaiHopDong==0 ){                
-                HopDong tmp = new HDCoBan(nguoiMua, nguoiHuongThu, thoiHan, giaTri, ngay, thang, nam);       
-                if( list.indexOf(tmp)==-1 ) {
-                    System.out.println("Khong ton tai hop dong, nhap lai: ");
+            int index = checkIndex(loaiHopDong, nguoiMua, nguoiThuHuong, thoiHan, giaTri, ngay, thang, nam);
+            if(index!=-1) {
+                System.out.println("Nhap thong tin moi");
+                list.remove(index);
+                int loaiHopDong1=Integer.parseInt(scan.nextLine());
+                String tenNguoiMua1=scan.nextLine();
+                String tenNguoiThuHuong1=scan.nextLine();
+                long giaTri1=Long.parseLong(scan.nextLine());
+                int ngay1=Integer.parseInt(scan.nextLine());
+                int thang1=Integer.parseInt(scan.nextLine());
+                int nam1=Integer.parseInt(scan.nextLine());
+                int thoiHan1=Integer.parseInt(scan.nextLine());
+                if(loaiHopDong1==0){ 
+                    HopDong tmp = new HDCoBan(tenNguoiMua1, tenNguoiThuHuong1, thoiHan1, giaTri1, ngay1, thang1, nam1);
+                    list.add(index, tmp);
                 }
-                else{
-                    int index=list.indexOf(tmp);
-                    list.remove(index);
-                    System.out.println("Nhap thong tin sau khi sua! ");
-                    boolean check1=true;
-                    while(check1){
-                        int loaiHopDong1=Integer.parseInt(scan.nextLine());
-                        String nguoiMua1=scan.nextLine();
-                        String nguoiHuongThu1=scan.nextLine();
-                        long giaTri1=Long.parseLong(scan.nextLine());
-                        int ngay1=Integer.parseInt(scan.nextLine());
-                        int thang1=Integer.parseInt(scan.nextLine());
-                        int nam1=Integer.parseInt(scan.nextLine());
-                        int thoiHan1=Integer.parseInt(scan.nextLine());
-                        if( loaiHopDong1==0 ){                
-                            HopDong tmp1 = new HDCoBan(nguoiMua1, nguoiHuongThu1, thoiHan1, giaTri1, ngay1, thang1, nam1);       // upcasting
-                            if(list.contains(tmp1)) System.out.println("Co hop dong trung du lieu\nVui long nhap lai.");
-                            else {
-                                check = false;
-                                list.add(index,tmp1);
-                            }
-                        }
-                        else {
-                            HopDong tmp1 = new HDNangCao(nguoiMua1, nguoiHuongThu1, thoiHan1, giaTri1, ngay1, thang1, nam1);       // upcasting
-                            if(list.contains(tmp1)) System.out.println("Co hop dong trung du lieu\nVui long nhap lai.");
-                            else {
-                                check = false;
-                                list.add(index,tmp1);
-                            }
-                        }
-                    }
+                else {
+                    HopDong tmp = new HDNangCao(tenNguoiMua1, tenNguoiThuHuong1, thoiHan1, giaTri1, ngay1, thang1, nam1);
+                    list.add(index, tmp);
                 }
+                check=false;
             }
-            else {
-                HopDong tmp = new HDNangCao(nguoiMua, nguoiHuongThu, thoiHan, giaTri, ngay, thang, nam);       
-                if( list.indexOf(tmp)==-1 ) {
-                    System.out.println("Khong ton tai hop dong, nhap lai: ");
-                }
-                else{
-                    int index=list.indexOf(tmp);
-                    list.remove(index);
-                    System.out.println("Nhap thong tin sau khi sua! ");
-                    boolean check1=true;
-                    while(check1){
-                        int loaiHopDong1=Integer.parseInt(scan.nextLine());
-                        String nguoiMua1=scan.nextLine();
-                        String nguoiHuongThu1=scan.nextLine();
-                        long giaTri1=Long.parseLong(scan.nextLine());
-                        int ngay1=Integer.parseInt(scan.nextLine());
-                        int thang1=Integer.parseInt(scan.nextLine());
-                        int nam1=Integer.parseInt(scan.nextLine());
-                        int thoiHan1=Integer.parseInt(scan.nextLine());
-                        if( loaiHopDong1==0 ){                
-                            HopDong tmp1 = new HDCoBan(nguoiMua1, nguoiHuongThu1, thoiHan1, giaTri1, ngay1, thang1, nam1);       // upcasting
-                            if(list.contains(tmp1)) System.out.println("Co hop dong trung du lieu\nVui long nhap lai.");
-                            else {
-                                check = false;
-                                list.add(index,tmp1);
-                            }
-                        }
-                        else {
-                            HopDong tmp1 = new HDNangCao(nguoiMua1, nguoiHuongThu1, thoiHan1, giaTri1, ngay1, thang1, nam1);       // upcasting
-                            if(list.contains(tmp1)) System.out.println("Co hop dong trung du lieu\nVui long nhap lai.");
-                            else {
-                                check = false;
-                                list.add(index,tmp1);
-                            }
-                        }
-                    }
-                }
-
-
-
-
-
+            else{
+                System.out.println("Khong co hop dong nay!\nNhap lai: ");
             }
         }
     }
@@ -214,12 +155,14 @@ public class ListHD {
     }
 
     public void timHopDong(int thoiHanHopDong){
+        System.out.println("Cac hop dong co thoi han "+ thoiHanHopDong +" thang:\n");
         for(HopDong tmp: list){
             if( tmp.getThoiHanHD() == thoiHanHopDong )     tmp.inThongTin();
         }
     }
 
     public void thongKe(int ngayStart, int thangStart, int namStart, int ngayEnd, int thangEnd, int namEnd){
+        System.out.println("Cac han dong trong khoang thoi gian tren:\n");
         LocalDate start=LocalDate.of(namStart, thangStart, ngayStart);
         LocalDate end=LocalDate.of(namEnd, thangEnd, ngayEnd);
         for(HopDong tmp: list){

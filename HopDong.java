@@ -47,4 +47,17 @@ public abstract class HopDong {
         this.giaTriHD = giaTriHD;
         ngayMua = LocalDate.of(nam, thang, ngay);
     }
+
+    public abstract int checkLoai(); 
+
+    public boolean checkEqual(int loaiHopDong, String tenNguoiMua, String tenNguoiThuHuong, int thoiHanHD, long giaTriHD, int ngay, int thang, int nam){
+        if(loaiHopDong!=checkLoai())                                return false;
+        if(!this.tenNguoiMua.equals(tenNguoiMua))                   return false;
+        if(!this.tenNguoiThuHuong.equals(tenNguoiThuHuong))         return false;
+        if(this.thoiHanHD!=thoiHanHD)                               return false;       
+        if(this.giaTriHD!=giaTriHD)                                 return false;       
+        LocalDate tmp = LocalDate.of(nam, thang, ngay);
+        if( !( this.ngayMua.isEqual(tmp) ) )                        return false;       
+        return true;
+    }
 }

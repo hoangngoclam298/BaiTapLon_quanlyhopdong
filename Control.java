@@ -12,12 +12,17 @@ public class Control {
         listHopDong.themHopDong();
         listHopDong.themHopDong();
         listHopDong.inDanhSach();
+        //listHopDong.xoaHopDong();
+        //listHopDong.inDanhSach();
+        //listHopDong.suaHopDong();
+        //listHopDong.inDanhSach();
+
         //listHopDong.xoaHopDongById();
         //listHopDong.inDanhSach();
         //listHopDong.suaHopDongById();
         //listHopDong.inDanhSach();
         listHopDong.timHopDong(18);
-        listHopDong.thongKe(5, 5, 2001, 9, 9, 2001);
+        listHopDong.thongKe(1, 1, 2001, 9, 11, 2001);
         
         System.out.println("\n\nTong loi nhuan:"+listHopDong.tienHopDong());
     }
@@ -39,7 +44,7 @@ Nguyen Thi Yen
 12
 2001
 20
-0
+1
 Hoang Nhat Nam
 Hoang Thi Thu Huong
 15000000

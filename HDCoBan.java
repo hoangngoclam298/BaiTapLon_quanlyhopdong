@@ -19,6 +19,10 @@ public class HDCoBan extends HopDong {
         System.out.println("Thoi han: "+super.getThoiHanHD()+" thang\n");
     }
 
+    public int checkLoai(){
+        return 0;
+    }
+
     public long loiNhuan(){
         return super.getGiaTriHD()/10l;
     }

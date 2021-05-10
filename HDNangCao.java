@@ -18,6 +18,10 @@ public class HDNangCao extends HopDong {
         System.out.println("Thoi han: "+super.getThoiHanHD()+" thang\n");
     }
 
+    public int checkLoai(){
+        return 1;
+    }
+
     public long loiNhuan() {
         return super.getGiaTriHD()/100l*17l + 1000000l;
     }
