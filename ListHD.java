@@ -155,7 +155,7 @@ public class ListHD {
     }
 
     public void timHopDong(int thoiHanHopDong){
-        System.out.println("Cac hop dong co thoi han "+ thoiHanHopDong +" thang:\n");
+        System.out.println("Cac hop dong co thoi han "+ thoiHanHopDong +"thang:\n");
         for(HopDong tmp: list){
             if( tmp.getThoiHanHD() == thoiHanHopDong )     tmp.inThongTin();
         }

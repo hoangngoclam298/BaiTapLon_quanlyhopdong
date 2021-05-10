@@ -12,10 +12,10 @@ public class Control {
         listHopDong.themHopDong();
         listHopDong.themHopDong();
         listHopDong.inDanhSach();
-        //listHopDong.xoaHopDong();
-        //listHopDong.inDanhSach();
-        //listHopDong.suaHopDong();
-        //listHopDong.inDanhSach();
+        listHopDong.xoaHopDong();
+        listHopDong.inDanhSach();
+        listHopDong.suaHopDong();
+        listHopDong.inDanhSach();
 
         //listHopDong.xoaHopDongById();
         //listHopDong.inDanhSach();
